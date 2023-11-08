@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - changeSet:
+      id: addIsDeletedColumn
+      author: YevheniiLutscenko
+      changes:
+        - addColumn:
+            tableName: factories
+            columns:
+              - column:
+                  name: is_delete
+                  type: BOOLEAN
+                  defaultValue: false
+                  constraints:
+                    nullable: false

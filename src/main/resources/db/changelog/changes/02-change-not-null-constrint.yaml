@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - changeSet:
+      id: updateCarsTable
+      author: YevheniiLutscenko
+      changes:
+        - dropNotNullConstraint:
+            tableName: cars
+            columnName: factory_id

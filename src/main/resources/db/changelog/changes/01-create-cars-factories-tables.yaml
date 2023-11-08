@@ -1,0 +1,52 @@
+databaseChangeLog:
+  - changeSet:
+      id: createFactoriesTable
+      author: YevheniiLutscenko
+      changes:
+        - createTable:
+            tableName: factories
+            columns:
+              - column:
+                  name: id
+                  type: INT
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: VARCHAR(64)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: location
+                  type: VARCHAR(64)
+  - changeSet:
+      id: createCarsTable
+      author: YevheniiLutscenko
+      changes:
+        - createTable:
+            tableName: cars
+            columns:
+              - column:
+                  name: id
+                  type: INT
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: VARCHAR(64)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: factory_id
+                  type: INT
+                  constraints:
+                    nullable: false
+                    foreignKeyName: factory_id
+        - addForeignKeyConstraint:
+            baseColumnNames: factory_id
+            baseTableName: cars
+            constraintName: factory_id
+            referencedTableName: factories
+            referencedColumnNames: id
+            onDelete: CASCADE
+
