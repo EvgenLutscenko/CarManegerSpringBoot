@@ -1,9 +1,9 @@
-package com.example.carsshopfactoriesmaneger.dto.carDto;
+package com.example.carsshopfactoriesmaneger.dto.factoryDto;
 
 import lombok.Data;
 
 @Data
-public class FactoryDtoForCar {
+public class FactoryDto {
     private Integer id;
 
     private String name;

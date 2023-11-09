@@ -5,10 +5,12 @@ import lombok.Data;
 import lombok.ToString;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
+import org.hibernate.annotations.WhereJoinTable;
 
 @Data
-@SQLDelete(sql = "UPDATE cars SET is_delete=true WHERE id = ?")
+@SQLDelete(sql = "UPDATE cars SET is_delete=true WHERE id=?")
 @Where(clause = "is_delete=false")
+
 @Entity
 @Table(name = "cars")
 public class Car {
@@ -23,7 +25,7 @@ public class Car {
     private boolean isDelete;
 
     @ToString.Exclude
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne
     @JoinColumn(name = "factory_id")
     private Factory factory;
 }

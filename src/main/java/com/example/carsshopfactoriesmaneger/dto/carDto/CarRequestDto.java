@@ -3,8 +3,7 @@ package com.example.carsshopfactoriesmaneger.dto.carDto;
 import lombok.Data;
 
 @Data
-public class CarDto {
-
+public class CarRequestDto {
     private Integer id;
 
     private String name;

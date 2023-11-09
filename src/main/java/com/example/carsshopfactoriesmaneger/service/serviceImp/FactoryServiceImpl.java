@@ -1,6 +1,10 @@
 package com.example.carsshopfactoriesmaneger.service.serviceImp;
 
+import com.example.carsshopfactoriesmaneger.dto.factoryDto.FactoryDto;
+import com.example.carsshopfactoriesmaneger.mapper.FactoryMapper;
+import com.example.carsshopfactoriesmaneger.model.Car;
 import com.example.carsshopfactoriesmaneger.model.Factory;
+import com.example.carsshopfactoriesmaneger.repository.CarRepository;
 import com.example.carsshopfactoriesmaneger.repository.FactoryRepository;
 import com.example.carsshopfactoriesmaneger.service.FactoryService;
 import lombok.RequiredArgsConstructor;
@@ -12,9 +16,11 @@ import java.util.List;
 @Service
 public class FactoryServiceImpl implements FactoryService {
     private final FactoryRepository factoryRepository;
+    private final CarRepository carRepository;
+    private final FactoryMapper factoryMapper;
     @Override
-    public Factory save(Factory factory) {
-        return factoryRepository.save(factory);
+    public FactoryDto save(Factory factory) {
+        return factoryMapper.toDto(factoryRepository.save(factory));
     }
 
     @Override
