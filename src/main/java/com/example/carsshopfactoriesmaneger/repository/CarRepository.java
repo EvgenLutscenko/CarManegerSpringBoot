@@ -8,8 +8,6 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface CarRepository extends JpaRepository<Car, Integer> {
-
-    void deleteAllByFactory_Id(Integer id);
     @Query("from Car c right join fetch Factory f " +
             "where c.factory.id = f.id")
     List<Car> findAllCars();

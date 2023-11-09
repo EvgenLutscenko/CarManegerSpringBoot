@@ -1,14 +1,12 @@
-package com.example.carsshopfactoriesmaneger.dto.carDto;
+package com.example.carsshopfactoriesmaneger.dto.factoryDto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CarRequestDto {
-    private Integer id;
-
+public class FactoryRequestDto {
     private String name;
 
-    private Integer factoryId;
+    private String location;
 }

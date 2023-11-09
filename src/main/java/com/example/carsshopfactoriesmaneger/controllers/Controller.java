@@ -4,6 +4,7 @@ package com.example.carsshopfactoriesmaneger.controllers;
 import com.example.carsshopfactoriesmaneger.dto.carDto.CarDto;
 import com.example.carsshopfactoriesmaneger.dto.carDto.CarRequestDto;
 import com.example.carsshopfactoriesmaneger.dto.factoryDto.FactoryDto;
+import com.example.carsshopfactoriesmaneger.dto.factoryDto.FactoryRequestDto;
 import com.example.carsshopfactoriesmaneger.model.Factory;
 import com.example.carsshopfactoriesmaneger.service.CarService;
 import com.example.carsshopfactoriesmaneger.service.FactoryService;
@@ -25,7 +26,7 @@ public class Controller {
     }
 
     @PostMapping("/factory")
-    public FactoryDto createCar(@RequestBody Factory factory){
+    public FactoryDto createFactory(@RequestBody FactoryRequestDto factory){
         return factoryService.save(factory);
     }
 
