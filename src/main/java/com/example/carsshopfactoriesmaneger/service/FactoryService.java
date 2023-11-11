@@ -10,7 +10,7 @@ import java.util.List;
 public interface FactoryService {
     FactoryDto save(FactoryRequestDto factory);
 
-    List<Factory> findAll();
+    List<FactoryDto> findAll();
 
     void deleteByID(Integer id);
 }

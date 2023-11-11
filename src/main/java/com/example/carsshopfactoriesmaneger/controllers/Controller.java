@@ -3,12 +3,16 @@ package com.example.carsshopfactoriesmaneger.controllers;
 
 import com.example.carsshopfactoriesmaneger.dto.carDto.CarDto;
 import com.example.carsshopfactoriesmaneger.dto.carDto.CarRequestDto;
+import com.example.carsshopfactoriesmaneger.dto.carDto.CarSearchParametrs;
 import com.example.carsshopfactoriesmaneger.dto.factoryDto.FactoryDto;
 import com.example.carsshopfactoriesmaneger.dto.factoryDto.FactoryRequestDto;
+import com.example.carsshopfactoriesmaneger.model.Car;
 import com.example.carsshopfactoriesmaneger.model.Factory;
+import com.example.carsshopfactoriesmaneger.repository.criteriaSpec.CarSpecificationBuilder;
 import com.example.carsshopfactoriesmaneger.service.CarService;
 import com.example.carsshopfactoriesmaneger.service.FactoryService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,7 +23,7 @@ import java.util.List;
 public class Controller {
     private final CarService carService;
     private final FactoryService factoryService;
-
+    private final CarSpecificationBuilder carSpecificationBuilder;
     @PostMapping("/car")
     public CarDto createCar(@RequestBody CarRequestDto car){
         return carService.save(car);
@@ -36,8 +40,13 @@ public class Controller {
     }
 
     @GetMapping("/factories")
-    public List<Factory> getFactories(){
+    public List<FactoryDto> getFactories(){
         return factoryService.findAll();
+    }
+
+    @GetMapping("/cars/search")
+    public List<CarDto> search(CarSearchParametrs carSearchParametrs){
+        return carService.findAll(carSearchParametrs);
     }
 
     @DeleteMapping("/cars/delete/{id}")

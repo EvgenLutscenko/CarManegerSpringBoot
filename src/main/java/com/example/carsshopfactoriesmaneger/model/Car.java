@@ -19,7 +19,11 @@ public class Car {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String name;
+    private String brand;
+
+    private String model;
+
+    private String color;
 
     @Column(name = "is_delete", nullable = false)
     private boolean isDelete;

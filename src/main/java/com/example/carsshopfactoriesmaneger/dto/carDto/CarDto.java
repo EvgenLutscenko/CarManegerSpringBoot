@@ -7,7 +7,11 @@ public class CarDto {
 
     private Integer id;
 
-    private String name;
+    private String brand;
+
+    private String model;
+
+    private String color;
 
     private Integer factoryId;
 }

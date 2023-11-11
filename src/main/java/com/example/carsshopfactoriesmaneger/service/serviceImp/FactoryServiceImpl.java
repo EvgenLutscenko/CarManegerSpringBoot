@@ -25,8 +25,10 @@ public class FactoryServiceImpl implements FactoryService {
     }
 
     @Override
-    public List<Factory> findAll() {
-        return factoryRepository.findAll();
+    public List<FactoryDto> findAll() {
+        return factoryRepository.findAll().stream()
+                .map(factoryMapper::toDto)
+                .toList();
     }
 
     @Override

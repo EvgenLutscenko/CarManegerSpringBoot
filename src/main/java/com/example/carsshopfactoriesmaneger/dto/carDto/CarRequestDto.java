@@ -6,9 +6,11 @@ import lombok.Data;
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CarRequestDto {
-    private Integer id;
+    private String brand;
 
-    private String name;
+    private String model;
+
+    private String color;
 
     private Integer factoryId;
 }

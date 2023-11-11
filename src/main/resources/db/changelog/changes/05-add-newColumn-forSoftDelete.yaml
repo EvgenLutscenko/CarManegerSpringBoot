@@ -1,5 +1,26 @@
 databaseChangeLog:
   - changeSet:
+      id: editColumnName
+      author: YevheniiLutscenko
+      changes:
+        - renameColumn:
+            tableName: cars
+            oldColumnName: name
+            newColumnName: brand
+  - changeSet:
+      id: addColumnsModelAndColor
+      author: YevheniiLutscenko
+      changes:
+        - addColumn:
+            tableName: cars
+            columns:
+              - column:
+                  name: model
+                  type: varchar(64)
+              - column:
+                  name: color
+                  type: varchar(64)
+  - changeSet:
       id: addIsDeletedColumn
       author: YevheniiLutscenko
       changes:
