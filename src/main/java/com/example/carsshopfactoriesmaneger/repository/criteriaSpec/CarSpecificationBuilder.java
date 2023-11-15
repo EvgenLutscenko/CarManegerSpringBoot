@@ -4,7 +4,6 @@ import com.example.carsshopfactoriesmaneger.dto.carDto.CarSearchParametrs;
 import com.example.carsshopfactoriesmaneger.model.Car;
 import com.example.carsshopfactoriesmaneger.repository.specProviderMan.SpecificationProviderManager;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
 

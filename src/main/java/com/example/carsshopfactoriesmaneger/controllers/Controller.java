@@ -11,12 +11,15 @@ import com.example.carsshopfactoriesmaneger.model.Factory;
 import com.example.carsshopfactoriesmaneger.repository.criteriaSpec.CarSpecificationBuilder;
 import com.example.carsshopfactoriesmaneger.service.CarService;
 import com.example.carsshopfactoriesmaneger.service.FactoryService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
+//**********//Main controller//**********//
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/controller")
@@ -30,7 +33,7 @@ public class Controller {
     }
 
     @PostMapping("/factory")
-    public FactoryDto createFactory(@RequestBody FactoryRequestDto factory){
+    public FactoryDto createFactory(@RequestBody @Valid FactoryRequestDto factory){
         return factoryService.save(factory);
     }
 
